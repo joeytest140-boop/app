@@ -1,7 +1,14 @@
-export function formatDate(dateString) {
-  if (!dateString) return "—";
-  const date = new Date(dateString);
-  if (Number.isNaN(date.getTime())) return dateString;
+export function formatDate(dateValue) {
+  if (!dateValue) return "—";
+
+  const raw =
+    dateValue && typeof dateValue === "object" && "value" in dateValue
+      ? dateValue.value
+      : dateValue;
+
+  const date = new Date(raw);
+  if (Number.isNaN(date.getTime())) return String(raw);
+
   return date.toLocaleDateString();
 }
 
