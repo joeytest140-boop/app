@@ -1,4 +1,4 @@
-const API_BASE = "https://YOUR-CLOUD-RUN-URL-HERE";
+const API_BASE = "https://planner-api-710385487022.us-central1.run.app";
 
 async function parseResponse(res) {
   const text = await res.text();
